@@ -1,0 +1,37 @@
+spring:
+  task:
+    execution:
+      pool:
+        core-size: 10
+        max-size: 20
+        queue-capacity: 50
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3308/movie_recommendation
+    username: root # Change this to your own username
+    password: yourpassword # Change this to your own password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 5000
+#        generate_statistics: true
+  mvc:
+    async:
+      request-timeout: -1
+#  lifecycle:
+#    timeout-per-shutdown-phase: 20s
+#
+#logging:
+#  level:
+#    com.movie.recommendation: debug
+
+movie:
+  service:
+    logging:
+      enabled: true
+
+server:
+  port: 8080
+  shutdown: graceful
